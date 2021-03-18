@@ -4,10 +4,8 @@ use App\Autoloader;
 require_once '../app/Autoloader.php';
 Autoloader::register();
 
-if (isset($_GET['page']) &&
-    $_GET['page'] === 'portfolio' ||
-    $_GET['page'] === 'blog') {
-    $page = $_GET['page'];
+if (isset($_GET['p'])) {
+    $page = $_GET['p'];
 } else {
     $page = 'home';
 }

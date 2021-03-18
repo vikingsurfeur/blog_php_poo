@@ -1,11 +1,17 @@
 <h1>Homepage</h1>
 
-<a style="display: block;" href="../public/index.php?page=portfolio">Portfolio</a>
-<a style="display: block;" href="../public/index.php?page=blog">Blog</a>
+<a style="display: block;" href="../public/index.php?p=portfolio">Portfolio</a>
+<a style="display: block;" href="../public/index.php?p=blog">Blog</a>
 
 <?php
 
-$pdo = new PDO('mysql:dbname=blog_php_poo;host=localhost', 'root', 'root');
-$pdo->exec('INSERT TO article SET titre="Premier Article", date="'.date('Y-m-d H:i:s').'"');
+use App\Database;
 
-?>
+$db     = new Database('blog_php_poo');
+$datas  = $db->query('SELECT * FROM article');
+var_dump($datas[0]->titre);
+
+// Create some articles with this
+
+//$count = $pdo->exec('INSERT INTO article SET titre="Premier Article", date="'.date('Y-m-d H:i:s').'"');
+//var_dump($count);
