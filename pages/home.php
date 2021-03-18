@@ -5,7 +5,7 @@
 
 <ul>
     <?php foreach ($db->query('SELECT * FROM article') as $post): ?>
-        <li><?= $post->titre ?></li>
+        <a href="../public/index.php?p=post&id=<?= $post->id; ?>"><li><?= $post->titre; ?></li></a>
     <?php endforeach; ?>
 </ul>
 
