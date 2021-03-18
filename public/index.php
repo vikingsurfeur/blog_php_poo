@@ -1,14 +1,22 @@
 <?php
 
-use App\Autoloader;
-require_once '../app/Autoloader.php';
-Autoloader::register();
+//use App\Autoloader;
+use App\Database;
+require_once '../app/Database.php';
+//require_once '../app/Autoloader.php';
+//App\Autoloader::register();
 
 if (isset($_GET['p'])) {
     $page = $_GET['p'];
 } else {
     $page = 'home';
 }
+
+// Initialize my objects
+
+$db = new Database('blog_php_poo');
+
+// Return my Template with content
 
 ob_start();
 if ($page === 'home') {

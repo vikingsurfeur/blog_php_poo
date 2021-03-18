@@ -22,10 +22,12 @@ class Database
 
     private function getPDO()
     {
-        $pdo = new PDO('mysql:dbname=blog_php_poo;host=localhost', 'root', ''); // Connect to my DB
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Debug errors
-        $this->pdo = $pdo;
-        return $pdo;
+        if ($this->pdo === null) {
+            $pdo = new PDO('mysql:dbname=blog_php_poo;host=localhost', 'root', ''); // Connect to my DB
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Debug errors
+            $this->pdo = $pdo;
+        }
+        return $this->pdo;
     }
 
     public function query($statement)
